@@ -41,6 +41,36 @@ public class Calculator {
         return a / b;
     }
 
+    public int calculateFirst(int a, int b) {
+    int result = a + b;
+    result = result * 2;
+    result = result + 10;
+    result = result - 5;
+    result = result * 3;
+    result = result + 20;
+    result = result / 2;
+    result = result + 15;
+    result = result * 2;
+    result = result - 10;
+    result = result + 5;
+    return result;
+}
+
+public int calculateSecond(int a, int b) {
+    int result = a + b;
+    result = result * 2;
+    result = result + 10;
+    result = result - 5;
+    result = result * 3;
+    result = result + 20;
+    result = result / 2;
+    result = result + 15;
+    result = result * 2;
+    result = result - 10;
+    result = result + 5;
+    return result;
+}
+
     public static void main(String[] args) {
 
         Calculator calc = new Calculator();
