@@ -29,6 +29,18 @@ public class Calculator {
         return a / b;
     }
 
+    //duplicate
+    public int multiply_duplicate(int a, int b) {
+        return a * b;
+    }
+
+    public int divide_duplicate(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        return a / b;
+    }
+
     public static void main(String[] args) {
 
         Calculator calc = new Calculator();
