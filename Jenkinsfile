@@ -9,7 +9,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo 'Code checkout completed'
+                git branch: 'main', credentialsId: 'github-token', url: 'https://github.com/Pavithrabalaji012/jenkins-sonarqube-integration.git'
             }
         }
 
@@ -19,18 +19,20 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv('sonarserver') {
-                    bat '''
-                        mvn sonar:sonar ^
-                        -Dsonar.projectKey=calculator-app ^
-                        -Dsonar.projectName=Calculator Application ^
-                        -Dsonar.sources=src/main/java ^
-                        -Dsonar.java.binaries=target/classes
-                    '''
-                }
-            }
+        
+stage('SonarQube Analysis') {
+    steps {
+        withSonarQubeEnv('sonarserver') {
+            bat '''
+                mvn org.sonarsource.scanner.maven:sonar-maven-plugin:5.1.0.4751:sonar ^
+                -Dsonar.projectKey=calculator-app ^
+                -Dsonar.projectName="Calculator Application" ^
+                -Dsonar.sources=src/main/java ^
+                -Dsonar.java.binaries=target/classes
+            '''
         }
+    }
+}
+
     }
 }
