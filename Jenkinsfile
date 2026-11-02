@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SONAR_PROJECT_KEY = 'calculator-app'
+        SONAR_TOKEN = credentials('sonarkey')
     }
 
     stages {
